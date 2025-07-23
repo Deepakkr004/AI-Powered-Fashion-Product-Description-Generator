@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Product Describer</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+        }
+
+        form {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        input[type="file"] {
+            padding: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            margin-left: 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        img {
+            margin-top: 20px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .result {
+            margin-top: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .result h2 {
+            color: #2c3e50;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Upload a Product Image</h1>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <input type="submit" value="Generate Description">
+    </form>
+
+    {% if filename %}
+        <div class="result">
+            <h2>Uploaded Image:</h2>
+            <img src="{{ filename }}" alt="Uploaded Product Image">
+        </div>
+    {% endif %}
+
+    {% if description %}
+        <div class="result">
+            <h2>Description:</h2>
+            <p class="description">{{ description }}</p>
+        </div>
+    {% endif %}
+</body>
+</html>
