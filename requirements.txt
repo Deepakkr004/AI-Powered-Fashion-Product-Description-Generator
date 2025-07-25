@@ -1,0 +1,7 @@
+flask
+gunicorn
+torch
+transformers
+Pillow
+python-dotenv
+openai

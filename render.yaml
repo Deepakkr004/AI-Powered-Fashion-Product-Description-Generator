@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: fashion-product-describer
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    envVars:
+      - key: AZURE_OPENAI_API_KEY
+        value: your_key_here
+      - key: AZURE_OPENAI_ENDPOINT
+        value: your_endpoint_here
+      - key: AZURE_DEPLOYMENT_NAME
+        value: gpt-4o
